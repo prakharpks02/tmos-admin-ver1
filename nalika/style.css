@@ -184,6 +184,11 @@ ul.dtl-social li a{
     margin-top: 10px;
     margin-bottom: 5px;
 }
+
+.main-logo {
+    width: 80% !important;
+}
+
 #sidebar.active .sidebar-header .main-logo{
 	display:none;
 }
