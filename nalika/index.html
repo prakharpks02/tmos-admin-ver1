@@ -62,6 +62,13 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <script type="text/javascript" src="js/vue.js"></script>
+	<!--   Calling Vue from local file   -->
+
+    <script type="text/javascript" src='js/axios.min.js'></script>
+	<!--   Calling Axios from local file   -->
+
 </head>
 
 <body>
@@ -135,7 +142,7 @@
 
 
     <!-- Start Welcome area -->
-    <div class="all-content-wrapper">
+    <div class="all-content-wrapper" id="main-page-container-id">
         <div class="container-fluid">
             <div class="row">
                 <p>TMoS Admin Panel</p>
@@ -497,8 +504,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-report">
-                                            <button data-toggle="tooltip" data-placement="left" title="Download Report"
-                                                class="btn"><i class="icon nalika-download"></i></button>
+                                            <button class="btn" v-on:click="ReloadApi"><i class="icon nalika-download"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -517,11 +523,11 @@
                                 <h4 class="text-left text-uppercase"><b>Total Orders</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="col-xs-3 mar-bot-15 text-left">
-                                        <label class="label bg-green">30% <i class="fa fa-level-up"
+                                        <label class="label bg-green">100% <i class="fa fa-level-up"
                                                 aria-hidden="true"></i></label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin">10,000</h2>
+                                        <h2 class="text-right no-margin">[[totalNumbers.totalOrders]]</h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
@@ -534,11 +540,11 @@
                                 <h4 class="text-left text-uppercase"><b>Today's Orders</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-red">15% <i class="fa fa-level-down"
+                                        <label class="label bg-red">50% <i class="fa fa-level-down"
                                                 aria-hidden="true"></i></label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin">5,000</h2>
+                                        <h2 class="text-right no-margin">[[totalNumbers.todayOrders]]</h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
@@ -555,7 +561,7 @@
                                                 aria-hidden="true"></i></label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin">$70,000</h2>
+                                        <h2 class="text-right no-margin">[[totalNumbers.todayOrders]]</h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
@@ -572,7 +578,7 @@
                                                 aria-hidden="true"></i></label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin">$100,000</h2>
+                                        <h2 class="text-right no-margin">[[totalNumbers.totalCompanies]]</h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
@@ -621,7 +627,7 @@
                                     <div id="sparklinedash"></div>
                                 </li>
                                 <li class="text-right sp-cn-r"><i class="fa fa-level-up" aria-hidden="true"></i> <span
-                                        class="counter sales-sts-ctn">8659</span></li>
+                                        class="counter sales-sts-ctn">[[totalNumbers.totalAgents]]</span></li>
                             </ul>
                         </div>
                         <div class="white-box analytics-info-cs mg-b-30">
@@ -631,7 +637,7 @@
                                     <div id="sparklinedash2"></div>
                                 </li>
                                 <li class="text-right"><i class="fa fa-level-up" aria-hidden="true"></i> <span
-                                        class="counter sales-sts-ctn">7469</span></li>
+                                        class="counter sales-sts-ctn">[[totalNumbers.totalPincodes]]</span></li>
                             </ul>
                         </div>
                         <div class="white-box analytics-info-cs mg-b-30">
