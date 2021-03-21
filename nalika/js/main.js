@@ -120,7 +120,7 @@
 // })
 
 
-const globalApiUrl = "http://127.0.0.1:8000";
+const globalApiUrl = "https://tmos.online";
 
 var app1 = new Vue({
 	el: '#main-page-container-id',
